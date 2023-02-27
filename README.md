@@ -1,27 +1,46 @@
-# AngularDemo
+# Docs
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
-## Development server
+## Commands and guides
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Install Angular CLI command line interface:
+    npm -i -g @angular/cli
 
-## Code scaffolding
+### Check version of ng:
+    ng v
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Start new project:
+    ng new hello-world
 
-## Build
+### Start program on server: Navigate to `http://localhost:4200/`
+    ng serve
+    
+or
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    npm start
 
-## Running unit tests
+### Generate new component:
+    ng generate component components/componentname
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
+## Adding Bootstrap to Angular
 
-## Running end-to-end tests
+initiate a new angular project using CSS styling
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    npm install --save bootstrap jquery
 
-## Further help
+edit the angular.json file and replace styles and scripts under the build target with:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    "styles": [
+      "src/styles.css", 
+        "node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ],
+      "scripts": [
+        "node_modules/jquery/dist/jquery.min.js",
+        "node_modules/bootstrap/dist/js/bootstrap.min.js"
+      ]
+
+
+
+https://www.smashingmagazine.com/2019/02/angular-application-bootstrap/
