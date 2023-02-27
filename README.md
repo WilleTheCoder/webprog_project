@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Commands and guides
 
 ### Install Angular CLI command line interface:
-    npm -i -g @angular/cli
+    npm install -g @angular/cli
 
 ### Check version of ng:
     ng v
