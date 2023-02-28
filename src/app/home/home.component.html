@@ -1,3 +1,7 @@
-<h1> Fetching data from API</h1>
+<h1> Brottshändelser </h1>
 
-{{myData | json}}
+<ul>
+    <li *ngFor="let item of myData">
+        {{ item.name }}
+    </li>
+</ul>
