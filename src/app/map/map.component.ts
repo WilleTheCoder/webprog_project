@@ -1,0 +1,13 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+    selector: 'app-home',
+    templateUrl: './map.component.html',
+    styleUrls: ['./map.component.css']
+})
+export class MapComponent implements OnInit {
+
+    ngOnInit(): void {
+
+    }
+}
