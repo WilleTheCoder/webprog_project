@@ -1,5 +1,28 @@
 <h1> Brottshändelser </h1>
 
+<table class="table table-hover">
+<thead>
+    <tr>
+        <th scope="col"> Tid </th>
+        <th scope="col"> Plats </th>
+        <th scope="col"> Typ </th>
+        <th scope="col"> Summering </th>
+
+    </tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let item of myData">
+        <th scope="row">{{item.name.split(",", 1)}}</th>
+        <td>{{item.location.name}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.summary}}</td>
+    </tr>
+</tbody>
+
+</table>
+
+
 <div class="list-group">
     <button type="button" class="list-group-item list-group-item-action" *ngFor="let item of myData">
         {{ item.name }}
