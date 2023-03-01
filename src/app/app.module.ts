@@ -15,7 +15,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
