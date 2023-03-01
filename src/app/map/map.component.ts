@@ -1,18 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import maplibregl, { Map, Marker } from 'maplibre-gl';
 
-
-const key = "hqsOsSmk68YlMpXipvjq"
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
-  map: Map | undefined;
-
-  @ViewChild('map')
-  private mapContainer!: ElementRef<HTMLElement>;
 
   constructor() { }
 
@@ -20,29 +14,30 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    const initialState = { lng: 13.210324, lat: 55.715920, zoom: 10 };
-
-    this.map = new Map({
-      container: this.mapContainer.nativeElement,
-      style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`,
-      center: [initialState.lng, initialState.lat],
-      zoom: initialState.zoom
+    const key = "hqsOsSmk68YlMpXipvjq"
+    var map = new maplibregl.Map({
+        container: 'map',
+        style:
+            `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`,
+        center: [14.3753, 62.0377], //sveg koordinater
+        zoom: 4
     });
-    // add marker
-    this.addMarker(13.210324, 55.715920, "#FF0000", this.map)
+
+    // create the popup
+    var popup = new maplibregl.Popup({ offset: 25 }).setText(
+        'Daniel commited a very bad crime here!'
+    );
+
+
+    // create the marker
+    new maplibregl.Marker()
+        .setLngLat([13.2103506, 55.7159043])
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
   }
-
-
-  addMarker(lat: number, lng: number, color: string, map: Map) {
-    new Marker({ color: color })
-      .setPopup(new maplibregl.Popup().setText("yoyoyooy"))
-      .setLngLat([lat, lng])
-      .addTo(map);
-  }
-
 
   ngOnDestroy() {
-    this.map?.remove();
+    // this.map?.remove();
   }
 
 }
