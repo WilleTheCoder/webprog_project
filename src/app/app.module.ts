@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
+    MapComponent,
     SearchFilterPipe
   ],
   imports: [
