@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
 
     this.dataService.getData().subscribe((data) => {
       this.myData = data;
+      this.dataService.setData(data)
       console.log(this.myData);
       this.dtTrigger.next(data);
     });

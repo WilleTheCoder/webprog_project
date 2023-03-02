@@ -8,7 +8,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
@@ -26,9 +25,9 @@ import { DataTablesModule } from 'angular-datatables';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GoogleMapsModule,
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
