@@ -16,24 +16,24 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     const key = "hqsOsSmk68YlMpXipvjq"
     var map = new maplibregl.Map({
-        container: 'map',
-        style:
-            `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`,
-        center: [14.3753, 62.0377], //sveg koordinater
-        zoom: 4
+      container: 'map',
+      style:
+        `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`,
+      center: [14.3753, 62.0377], //sveg koordinater
+      zoom: 4
     });
 
     // create the popup
     var popup = new maplibregl.Popup({ offset: 25 }).setText(
-        'Daniel commited a very bad crime here!'
+      'Daniel commited a very bad crime here! '
     );
 
 
     // create the marker
     new maplibregl.Marker()
-        .setLngLat([13.2103506, 55.7159043])
-        .setPopup(popup) // sets a popup on this marker
-        .addTo(map);
+      .setLngLat([13.2103506, 55.7159043])
+      .setPopup(popup) // sets a popup on this marker
+      .addTo(map);
   }
 
   ngOnDestroy() {
