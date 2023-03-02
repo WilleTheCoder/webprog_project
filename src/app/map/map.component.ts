@@ -28,15 +28,20 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         this.dataService.setData(data);
         this.data = data;
         console.log('fetched: ', this.data);
+        this.afterDataLoaded();
       });
     } else {
       //already fetched-> just retrieve it. maybe fix so we dont have to refetch upon refresh
       this.data = this.dataService.retrieveData();
       console.log('retrieved: ', this.data);
+      this.afterDataLoaded();
     }
   }
 
-  ngAfterViewInit() {
+  private afterDataLoaded(): void {
+    // This function is called after the data has been loaded, so we can safely use this.data here.
+    console.log('data loaded', this.data);
+
     const key = 'hqsOsSmk68YlMpXipvjq';
     // var sw = new maplibregl.LngLat(55.16170490836214, 10.271987280734805);
     // var ne = new maplibregl.LngLat(69.49324066427884, 22.137221056967203);
@@ -62,9 +67,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       url: string
     }
 
-
-    
-
     for (let el of Object.values(this.data) as MyData[]) {
       console.log('generate markers..');
       const gps: string = el.location.gps;    
@@ -74,6 +76,9 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.addMarker(coordinates[1], coordinates[0], this.createHTML(el), this.map);
     }
+  }
+
+  ngAfterViewInit() {
   }
 
   ngOnDestroy() {
