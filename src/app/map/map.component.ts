@@ -17,7 +17,7 @@ import { DataService } from '../data.service';
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   private map: Map | null = null;
   private data: any;
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     var flag = this.dataService.retrieveData();
@@ -69,11 +69,9 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     for (let el of Object.values(this.data) as MyData[]) {
       console.log('generate markers..');
-      const gps: string = el.location.gps;    
+      const gps: string = el.location.gps;
       var coordinates = gps.split(',').map((k) => parseFloat(k));
-
       
-
       this.addMarker(coordinates[1], coordinates[0], this.createHTML(el), this.map);
     }
   }
@@ -85,8 +83,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.map?.remove();
   }
 
-createHTML(mydata: any) {
-  return `<ul class="list-group">
+  createHTML(mydata: any) {
+    return `<ul class="list-group">
     <li class="list-group-item">
       <div><strong>Datetime:</strong> ${mydata.datetime}</div>
       <div><strong>ID:</strong> ${mydata.id}</div>
@@ -96,12 +94,7 @@ createHTML(mydata: any) {
       <div class="mt-2"><strong>Summary:</strong> ${mydata.summary}</div>
     </li>
   </ul>`;
-}
-
-
-
-  
-  
+  }
 
   addMarker(lng: number, lat: number, text: string, map: Map) {
     var popup = new maplibregl.Popup({ offset: 25 }).setHTML(text);
