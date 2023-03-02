@@ -1,23 +1,49 @@
 <h1> Brottshändelser </h1>
 
-<table class="table table-hover">
-<thead>
-    <tr>
-        <th scope="col"> Tid </th>
-        <th scope="col"> Plats </th>
-        <th scope="col"> Typ </th>
-        <th scope="col"> Summering </th>
 
-    </tr>
-</thead>
+<div class="form-group">
+    <input type="text" class="form-control search-field w-25 p-3" placeholder="Filtrera händelser"
+        [(ngModel)]="searchText">
+</div>
+<table class="table table-hover table-fixed" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+        <tr>
+            <th scope="col"> Tid </th>
+            <th scope="col"> Plats </th>
+            <th scope="col"> Typ </th>
+            <th scope="col"> Summering </th>
 
-<tbody>
-    <tr class="clickable" *ngFor="let item of myData" [routerLink]="['/detaljer/', item.id]">
-        <th scope="row">{{item.name.split(",", 1)}}</th>
-        <td>{{item.location.name}}</td>
-        <td>{{item.type}}</td>
-        <td>{{item.summary}}</td>
-    </tr>
-</tbody>
+        </tr>
+    </thead>
 
+    <tbody>
+        <tr class="clickable" *ngFor="let item of myData | searchFilter: searchText" [routerLink]="['/detaljer/', item.id]">
+            <td>{{item.name.split(",", 1)}}</td>
+            <td>{{item.location.name}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.summary}}</td>
+        </tr>
+    </tbody>
 </table>
+
+<!-- <table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"> Tid </th>
+            <th scope="col"> Plats </th>
+            <th scope="col"> Typ </th>
+            <th scope="col"> Summering </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of myData">
+            <td>{{item.name.split(",", 1)}}</td>
+            <td>{{item.location.name}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.summary}}</td>
+        </tr>
+    </tbody>
+
+</table> -->
