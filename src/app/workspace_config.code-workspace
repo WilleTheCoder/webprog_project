@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "webprog_project",
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
