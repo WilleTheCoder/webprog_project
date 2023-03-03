@@ -71,7 +71,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log('generate markers..');
       const gps: string = el.location.gps;
       var coordinates = gps.split(',').map((k) => parseFloat(k));
-      
+
       this.addMarker(coordinates[1], coordinates[0], this.createHTML(el), this.map);
     }
   }

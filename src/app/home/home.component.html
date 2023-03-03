@@ -1,31 +1,36 @@
-<h1> Brottshändelser </h1>
+<div class="container">
+    <h1> Brottshändelser </h1>
 
+    <div class="form-group">
+        <input type="text" class="form-control search-field w-25 p-3" placeholder="Filtrera händelser"
+            [(ngModel)]="searchText">
+    </div>
+    <table class="content-table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        <thead>
+            <tr>
+                <th scope="col"> Tid </th>
+                <th scope="col"> Plats </th>
+                <th scope="col"> Typ </th>
+                <th scope="col"> Summering </th>
 
-<div class="form-group">
-    <input type="text" class="form-control search-field w-25 p-3" placeholder="Filtrera händelser"
-        [(ngModel)]="searchText">
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="clickable" *ngFor="let item of myData | searchFilter: searchText"
+                [routerLink]="['/detaljer/', item.id]">
+                <td>{{item.name.split(",", 1)}}</td>
+                <td>{{item.location.name}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.summary}}</td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
-<table class="table table-hover table-fixed" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
-    <thead>
-        <tr>
-            <th scope="col"> Tid </th>
-            <th scope="col"> Plats </th>
-            <th scope="col"> Typ </th>
-            <th scope="col"> Summering </th>
-
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr class="clickable" *ngFor="let item of myData | searchFilter: searchText" [routerLink]="['/detaljer/', item.id]">
-            <td>{{item.name.split(",", 1)}}</td>
-            <td>{{item.location.name}}</td>
-            <td>{{item.type}}</td>
-            <td>{{item.summary}}</td>
-        </tr>
-    </tbody>
-</table>
-
+<div class="container">
+    All information är hämtad från Polisens öppna <a href="https://polisen.se/api/events/">API</a>
+</div>
 <!-- <table class="table table-hover">
     <thead>
         <tr>
