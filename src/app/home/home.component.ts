@@ -23,7 +23,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dtOptions = {
-      pagingType: 'full_numbers'
+      pagingType: 'full_numbers',
+      pageLength: 10,
+
+      processing: true
+
     };
 
     this.dataService.getData().subscribe((data) => {
@@ -32,7 +36,7 @@ export class HomeComponent implements OnInit {
       console.log(this.myData);
       this.dtTrigger.next(data);
     });
-    this.LoadInvoice();
+
 
   }
   LoadInvoice() {
