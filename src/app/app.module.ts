@@ -11,6 +11,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { LikeButtonComponent } from './like-button/like-button.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
