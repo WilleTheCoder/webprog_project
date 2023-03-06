@@ -11,6 +11,7 @@ import { MapComponent } from './map/map.component';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+import { LikeButtonComponent } from './like-button/like-button.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DataTablesModule } from 'angular-datatables';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    LikeButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,9 @@ import { DataTablesModule } from 'angular-datatables';
     HttpClientModule,
     FormsModule,
     DataTablesModule,
-    FormsModule
+    FormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

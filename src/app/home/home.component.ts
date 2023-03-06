@@ -4,6 +4,8 @@ import { DataService } from '../data.service';
 import { Data } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
 import { Subject } from 'rxjs';
+import { MaterialIcon } from 'material-icons';
+
 
 @Component({
   selector: 'app-home',
