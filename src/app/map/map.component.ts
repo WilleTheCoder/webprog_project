@@ -51,6 +51,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`,
       center: [14.3753, 62.0377], //sveg koordinater
       zoom: 4,
+      attributionControl: false,
       // maxZoom: 10,
       hash: true,
       interactive: true,
