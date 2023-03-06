@@ -19,7 +19,10 @@
         <tbody>
             <tr class="clickable" *ngFor="let item of myData | searchFilter : searchText">
                 <td>
-                    <app-like-button> </app-like-button>
+                    <app-like-button
+                        [id]="item.id"
+                        (newItemEvent)="addItem($event)"> 
+                    </app-like-button>
                 </td>
                 <td [routerLink]="['/detaljer/', item.id]">
                     {{ item.name.split(",", 1) }}
@@ -36,7 +39,6 @@
     <a href="https://polisen.se/api/events/">API</a>
     <span class="bi bi-heart"></span>
 </div>
-<app-like-button> </app-like-button>
 <!-- <table class="table table-hover">
     <thead>
         <tr>

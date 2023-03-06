@@ -16,6 +16,7 @@ import { MaterialIcon } from 'material-icons';
 export class HomeComponent implements OnInit {
   myData: any;
   searchText: any;
+  likedItems = new Set();
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -27,9 +28,7 @@ export class HomeComponent implements OnInit {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
-
       processing: true
-
     };
 
     this.dataService.getData().subscribe((data) => {
@@ -43,6 +42,13 @@ export class HomeComponent implements OnInit {
   }
   LoadInvoice() {
     this.dtTrigger.next(null);
+  }
+
+  addItem(id: any){
+    console.log("additem");
+    let item = this.myData.filter((x: any) => x.id == id)[0];
+    this.likedItems.has(item) ? this.likedItems.delete(item) : this.likedItems.add(item);
+    console.log(this.likedItems);
   }
 
 }

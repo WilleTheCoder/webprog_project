@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { LikeButtonComponent } from './like-button/like-button.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LikedComponent } from './liked/liked.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     FooterComponent,
     SearchFilterPipe,
-    LikeButtonComponent
+    LikeButtonComponent,
+    LikedComponent
   ],
   imports: [
     BrowserModule,
