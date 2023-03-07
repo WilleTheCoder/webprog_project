@@ -19,10 +19,8 @@
         <tbody>
             <tr class="clickable" *ngFor="let item of myData | searchFilter : searchText">
                 <td>
-                    <app-like-button
-                        [id]="item.id"
-                        (newItemEvent)="addItem($event)"> 
-                    </app-like-button>
+                    <app-like-button [isActive]="isActive(item)" (click)="toggleFavorite(item);"></app-like-button>
+                    
                 </td>
                 <td [routerLink]="['/detaljer/', item.id]">
                     {{ item.name.split(",", 1) }}
@@ -39,24 +37,10 @@
     <a href="https://polisen.se/api/events/">API</a>
     <span class="bi bi-heart"></span>
 </div>
-<!-- <table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col"> Tid </th>
-            <th scope="col"> Plats </th>
-            <th scope="col"> Typ </th>
-            <th scope="col"> Summering </th>
 
-        </tr>
-    </thead>
 
-    <tbody>
-        <tr *ngFor="let item of myData">
-            <td>{{item.name.split(",", 1)}}</td>
-            <td>{{item.location.name}}</td>
-            <td>{{item.type}}</td>
-            <td>{{item.summary}}</td>
-        </tr>
-    </tbody>
+<div class="container">
 
-</table> -->
+    <app-liked  *ngIf= "showSaved" [favorites] = "favorites" (remove) = "removeFromFavorites($event)"></app-liked>
+
+</div>

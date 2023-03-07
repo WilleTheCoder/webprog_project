@@ -6,19 +6,10 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./like-button.component.css']
 })
 export class LikeButtonComponent {
-  isActive: boolean;
-  @Output() newItemEvent = new EventEmitter<any>();
-  @Input() id ='';
-
+  @Input() isActive: boolean;
   constructor() {
     this.isActive = false;
+
   }
 
-  onClick() {
-    console.log("clicked");
-    console.log(this.id);
-    this.isActive = !this.isActive;
-    this.newItemEvent.emit(this.id)
-  }  
-  
 }

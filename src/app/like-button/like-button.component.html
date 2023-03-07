@@ -1,6 +1,7 @@
 <div>
     <label class="container">
-        <input (click)="onClick()" type="checkbox" />
+        <input type="checkbox" [(ngModel)]="isActive" disabled/>
+        
         <div class="checkmark"></div>
     </label>
 </div>

@@ -19,8 +19,42 @@ export class HomeComponent implements OnInit {
   likedItems = new Set();
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  showSaved: boolean = false;
+  favorites: any = [];
 
   constructor(private dataService: DataService) {
+  }
+
+  addToFavorites(item: any){
+    if (!this.favorites.includes(item)) {
+      console.log("pushing");
+      this.favorites.push(item);
+    }
+  }
+
+  isActive(item: any){
+    return this.favorites.includes(item);
+  }
+
+removeFromFavorites(id: any) {
+  const index = this.favorites.indexOf(id);
+  if (index !== -1) {
+    this.favorites.splice(index, 1);
+    this.favorites = [...this.favorites]; 
+  }
+}
+
+  toggleFavorite(item: any) {
+
+    console.log("toggling");
+    
+    if (this.favorites.includes(item)) {
+      this.removeFromFavorites(item);
+    } else {      
+      this.addToFavorites(item);
+    }
+
+    this.showSaved = (this.favorites.length > 0) ? true : false; 
 
   }
 
@@ -44,11 +78,5 @@ export class HomeComponent implements OnInit {
     this.dtTrigger.next(null);
   }
 
-  addItem(id: any){
-    console.log("additem");
-    let item = this.myData.filter((x: any) => x.id == id)[0];
-    this.likedItems.has(item) ? this.likedItems.delete(item) : this.likedItems.add(item);
-    console.log(this.likedItems);
-  }
 
 }

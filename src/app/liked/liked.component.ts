@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-liked',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./liked.component.css']
 })
 export class LikedComponent {
-
+@Input() favorites: any[] | undefined;
+@Output() remove = new EventEmitter<string>();
 }

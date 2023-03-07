@@ -1,1 +1,12 @@
-<p>liked works!</p>
+<div class="container mb-5">
+<h1 class="mt-5">Sparade händelser</h1>
+<ul class="list-group">
+<li class="list-group-item" *ngFor="let favorite of favorites">
+    <div>
+    <p>{{favorite.summary}}</p>
+    <a href="https://www.polisen.se{{favorite.url}}">Gå till händelse</a>
+    <button type="button" class="btn btn-light" (click) = "remove.emit(favorite)">Ta bort</button>
+</div>
+</li>
+</ul>
+</div>
