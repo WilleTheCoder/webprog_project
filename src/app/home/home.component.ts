@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
       console.log("pushing");
       this.favorites.push(item);
     }
+    this.updateSavedStatus();
   }
 
   isActive(item: any){
@@ -42,6 +43,7 @@ removeFromFavorites(id: any) {
     this.favorites.splice(index, 1);
     this.favorites = [...this.favorites]; 
   }
+  this.updateSavedStatus();
 }
 
   toggleFavorite(item: any) {
@@ -54,8 +56,12 @@ removeFromFavorites(id: any) {
       this.addToFavorites(item);
     }
 
-    this.showSaved = (this.favorites.length > 0) ? true : false; 
+    
 
+  }
+
+  updateSavedStatus(){
+    this.showSaved = (this.favorites.length > 0) ? true : false; 
   }
 
   ngOnInit(): void {
