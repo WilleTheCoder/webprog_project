@@ -1,12 +1,11 @@
 
 #map {
-    height: 600px;
+    height: 1000px;
     width: 100%;
     margin: 0 auto;
     border: 3px solid rgb(0,32,255);
     border-radius: 10px;
-    resize: both;
-    /* overflow: auto; */
+    overflow: auto;
 }
 
 .mapboxgl-popup {
